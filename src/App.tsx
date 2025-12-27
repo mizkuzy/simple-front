@@ -1,7 +1,5 @@
-import {Button} from "@/components/ui/button.tsx";
-import {Input} from "@/components/ui/input.tsx";
 import {useState} from "react";
-import {Card, CardAction, CardContent} from "@/components/ui/card.tsx";
+import {Card, CardContent} from "@/components/ui/card.tsx";
 
 function App() {
   const [name, setName] = useState("null");
@@ -9,40 +7,41 @@ function App() {
 
   return (
     <div className="container mx-auto p-8">
-      {name ? (
-        <Card className="w-full p-6 flex justify-center">
-          <CardContent>
-            {`Hello, ${name}`}
-          </CardContent>
-        </Card>) : <div className="flex w-full max-w-sm items-center gap-2">
-        <Input type="text" placeholder="enter name"/>
-        <Button type="submit" variant="outline">
-          Ok
-        </Button>
-      </div>}
+      <div className="max-w-5xl mx-auto">
+        <div className="grid grid-cols-3 gap-4">
+          <div></div>
 
-      <div className="w-full p-6 flex justify-center">
-        <Card className="w-full max-w-sm">
-          <CardAction className="w-full">
-            <Button type="submit" variant="outline" className="w-full">
-              Add entry
-            </Button>
-          </CardAction>
-          <CardContent>
-            {entries.length === 0 ? (
-              <p className="text-center text-gray-500">No entries found</p>
-            ) : (
-              <ul className="space-y-2">
-                {entries.map(entry => (
-                    <li key={entry} className="p-3 border rounded-lg hover:bg-gray-50">
-                      {entry}
-                    </li>
-                  )
-                )}
+          <Card className="h-32">
+            <CardContent className="flex items-center justify-center h-full">
+              <p className="text-lg">Card.</p>
+            </CardContent>
+          </Card>
+
+          <Card className="h-32">
+            <CardContent className="flex items-center justify-center h-full">
+              <p className="text-lg">DB STATUS</p>
+            </CardContent>
+          </Card>
+
+          <div></div>
+
+          <Card className="min-h-64">
+            <CardContent className="p-6">
+              <p className="text-center text-gray-600">
+                Card which will grow as list of strings grows.
+              </p>
+              <ul className="space-y-2 mt-4">
+                {entries.map((entry, index) => (
+                  <li key={index} className="p-3 border rounded-lg">
+                    {entry}
+                  </li>
+                ))}
               </ul>
-            )}
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+
+          <div></div>
+        </div>
       </div>
     </div>
   )
