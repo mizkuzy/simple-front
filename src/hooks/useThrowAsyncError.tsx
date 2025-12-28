@@ -1,6 +1,11 @@
-import {useState} from "react";
+import {useCallback, useState} from "react";
 
 export const useThrowAsyncError = () => {
   const [, setError] = useState<Error | null>(null);
-  return (error: Error) => setError(() => { throw error });
+
+  return useCallback((error: Error) => {
+    setError(() => {
+      throw error;
+    });
+  }, []);
 };
