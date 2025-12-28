@@ -1,3 +1,20 @@
+### Without docker
+```
+npm install
+npm run dev
+```
+
+App should run on http://localhost:5173
+
+### With docker
+
+```
+docker build -t front-dt -f Dockerfile.dev .
+docker run -p 5173:5173 front-dt
+```
+
+### With docker-compose
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
