@@ -1,6 +1,7 @@
 import {Card, CardContent} from "@/components/ui/card.tsx";
 import {ErrorBoundary} from "@/error-boundary/error-boundary.tsx";
 import UserBlock from "@/features/user/user-block.tsx";
+import EntriesBlock from "@/features/entries/entries-block.tsx";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
               </CardContent>
             </Card>
             <div></div>
-            {/*<EntriesBlock entries={entries}/>*/}
+            <EntriesBlock/>
             <div></div>
           </div>
         </div>
