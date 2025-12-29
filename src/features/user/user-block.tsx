@@ -1,10 +1,10 @@
 import {Input} from "@/components/ui/input.tsx";
 import {Button} from "@/components/ui/button.tsx";
-import {Label} from "@/components/ui/label.tsx";
 import {useEffect, useState} from "react";
 import {getUser, saveUser} from "@/features/user/user.service.ts";
 import {useThrowAsyncError} from "@/hooks/useThrowAsyncError.tsx";
 import {isNameValid} from "@/features/user/user.validation..ts";
+import {Card} from "@/components/ui/card.tsx";
 
 const UserBlock = () => {
   const throwAsyncError = useThrowAsyncError();
@@ -69,7 +69,10 @@ const UserBlock = () => {
           )}
         </div>
       )
-      : <Label>{`Hello, ${name}`}</Label>
+      : (
+        <Card className="flex items-center justify-center">
+          <span className="text-3xl font-semibold">{`Hello, ${name}`}</span>
+        </Card>)
   )
 }
 

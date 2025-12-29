@@ -6,10 +6,10 @@ import EntriesBlock from "@/features/entries/entries-block.tsx";
 function App() {
   return (
     <ErrorBoundary>
-      <div className="container mx-auto p-8">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-3 gap-4">
-            <div></div>
+      <div className="h-screen overflow-hidden container mx-auto p-8">
+        <div className="max-w-5xl mx-auto h-full min-h-0">
+          <div className="grid grid-cols-3 grid-rows-[auto_1fr_auto] gap-4 h-full">
+          <div></div>
             <UserBlock/>
             <Card className="h-32">
               <CardContent className="flex items-center justify-center h-full">
@@ -17,7 +17,9 @@ function App() {
               </CardContent>
             </Card>
             <div></div>
-            <EntriesBlock/>
+            <div className="min-h-0">
+              <EntriesBlock />
+            </div>
             <div></div>
           </div>
         </div>

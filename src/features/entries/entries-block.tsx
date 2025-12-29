@@ -42,8 +42,8 @@ const EntriesBlock = () => {
   }
 
   return (
-    <Card className="min-h-64">
-      <CardHeader>
+    <Card className="flex flex-col h-full overflow-hidden">
+      <CardHeader className="flex-shrink-0">
         <Button
           type="submit"
           variant="outline"
@@ -51,7 +51,7 @@ const EntriesBlock = () => {
           Add entry
         </Button>
       </CardHeader>
-      <CardContent className="p-6">
+      <CardContent className="p-6 overflow-y-auto flex-1">
         <ul className="space-y-2 mt-4">
           {entries.map(({id, value}) => (
             <li key={id} className="p-3 border rounded-lg flex justify-between items-center">
