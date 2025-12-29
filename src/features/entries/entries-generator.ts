@@ -48,7 +48,7 @@ const generateEntry = (): string => {
   const getRandomElement = <T>(arr: T[]): T =>
     arr[Math.floor(Math.random() * arr.length)];
 
-  return `${getRandomElement(adjectives)}-${getRandomElement(nouns)}`;
+  return `${getRandomElement(adjectives)} ${getRandomElement(nouns)}`;
 };
 
 export default generateEntry;
