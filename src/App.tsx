@@ -1,6 +1,6 @@
 import {Card, CardContent} from "@/components/ui/card.tsx";
 import {ErrorBoundary} from "@/error-boundary/error-boundary.tsx";
-import UserBlock from "@/components/user-block.tsx";
+import UserBlock from "@/features/user/user-block.tsx";
 
 function App() {
   return (
