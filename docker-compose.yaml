@@ -1,0 +1,44 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app-backend
+    depends_on:
+      - postgres
+    environment:
+      LOG_LEVEL: ${LOG_LEVEL:-debug}
+      APP_PORT: ${APP_PORT:-8080}
+      PG_DB_URL: postgres
+      PG_DB_PORT: ${PG_DB_PORT:-5432}
+      PG_DB_NAME: ${PG_DB_NAME}
+      PG_DB_USERNAME: ${PG_DB_USERNAME}
+      PG_DB_PASSWORD: ${PG_DB_PASSWORD}
+      FE_CORS_URL: ${FE_CORS_URL}
+    ports:
+    - "${APP_PORT:-8080}:${APP_PORT:-8080}"
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: app-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${PG_DB_NAME}
+      POSTGRES_USER: ${PG_DB_USERNAME}
+      POSTGRES_PASSWORD: ${PG_DB_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "5173:80"
+
+volumes:
+  postgres_data:
+    driver: local
