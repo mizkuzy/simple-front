@@ -30,7 +30,7 @@ const EntriesBlock = () => {
     try {
       const value = generateEntry()
       const entry = await addEntry(value)
-      setEntries([...entries, entry])
+      setEntries([entry, ...entries])
     } catch (err) {
       throwAsyncError(err as Error);
     }
@@ -52,7 +52,7 @@ const EntriesBlock = () => {
         </Button>
       </CardHeader>
       <CardContent className="p-6 overflow-y-auto flex-1">
-        <ul className="space-y-2 mt-4">
+        <ul className="space-y-2">
           {entries.map(({id, value}) => (
             <li key={id} className="p-3 border rounded-lg flex justify-between items-center">
               <span>{value}</span>

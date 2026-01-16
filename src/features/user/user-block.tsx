@@ -47,7 +47,7 @@ const UserBlock = () => {
     !name
       ? (
         <div className="flex flex-col w-full max-w-sm gap-2">
-          <div className="flex items-center gap-2">
+          <div className="flex gap-2">
             <Input
               type="text"
               placeholder="enter name"

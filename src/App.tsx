@@ -1,4 +1,3 @@
-import {Card, CardContent} from "@/components/ui/card.tsx";
 import {ErrorBoundary} from "@/error-boundary/error-boundary.tsx";
 import UserBlock from "@/features/user/user-block.tsx";
 import EntriesBlock from "@/features/entries/entries-block.tsx";
@@ -6,21 +5,12 @@ import EntriesBlock from "@/features/entries/entries-block.tsx";
 function App() {
   return (
     <ErrorBoundary>
-      <div className="h-screen overflow-hidden container mx-auto p-8">
-        <div className="max-w-5xl mx-auto h-full min-h-0">
-          <div className="grid grid-cols-3 grid-rows-[auto_1fr_auto] gap-4 h-full">
-          <div></div>
-            <UserBlock/>
-            <Card className="h-32">
-              <CardContent className="flex items-center justify-center h-full">
-                <p className="text-lg">DB STATUS</p>
-              </CardContent>
-            </Card>
-            <div></div>
-            <div className="min-h-0">
-              <EntriesBlock />
-            </div>
-            <div></div>
+      <div className="h-screen flex flex-col overflow-hidden">
+        <div className="bg-[rgb(226,0,116)] h-16 md:h-20 flex-shrink-0"></div>
+        <div className="flex-1 flex flex-col items-center justify-center p-4 overflow-hidden">
+          <div className="flex flex-col space-y-6 md:space-y-8 w-full max-w-md h-full max-h-full mt-2">
+            <UserBlock />
+            <EntriesBlock />
           </div>
         </div>
       </div>
